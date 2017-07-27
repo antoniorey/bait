@@ -17,6 +17,7 @@
 				<li class="bt-nn">
 					<a class="hvr-shutter-in-horizontal button" href="profile.php">ดูข้อมูล</a>
 				</li>
+
 				<div class="clearfix"></div>
 			</div>
 			<div class="order-top">
