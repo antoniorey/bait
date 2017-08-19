@@ -8,16 +8,16 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">SB Admin</a>
+        <a class="navbar-brand" href="index.php">หน้าแรก</a>
 
-        <a class="navbar-brand" href="blank.php">คณะ </a>
+        <a class="navbar-brand" href="blank.php">ห้องพัก </a>
 
 
     </div>
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin<b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Admin <b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li>
                     <a href="#"><i class="fa fa-fw fa-user"></i> พระมหา</a>
@@ -33,7 +33,7 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                    <a href="logout.php?logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
             </ul>
         </li>
@@ -48,15 +48,24 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> ข้อมูล <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="demo" class="collapse">
                     <li>
-                        <a href="data_user.php">ข้อมูลผู้เข้าอาศัย</a>
+                        <a href="data_user3.php">ผู้เข้าอาศัยคณะ 3</a>
                     </li>
                     <li>
-                        <a href="data_member.php">ข้อมูลสมาชิก</a>
+                        <a href="data_user4.php">ผู้เข้าอาศัยคณะ 4</a>
+                    </li>
+                    <li>
+                        <a href="data_user5.php">ผู้เข้าอาศัยคณะ 5</a>
+                    </li>
+                    <li>
+                        <a href="data_user6.php">ผู้เข้าอาศัยคณะ 6</a>
+                    </li>
+                    <li>
+                        <a href="data_members.php">ข้อมูลสมาชิก</a>
                     </li>
                 </ul>
             </li>
             <li>
-                <a href="add_user.php"><i class="fa fa-fw fa-bar-chart-o"></i> Add Users</a>
+                <a href="add_user.php"><i class="fa fa-fw fa-bar-chart-o"></i> เพิ่มผู้อาศัย </a>
             </li>
 
         </ul>

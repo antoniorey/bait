@@ -70,11 +70,7 @@
                         <div class="panel panel-primary panel-table animated slideInDown">
                          <div class="panel-heading " style="padding:5px;">
                               <div class="row">
-                              <div class="col col-xs-3 text-left">
-                                  <a href="#list" class="btn btn-default" aria-controls="list" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> ข้อมูล</a>
-                                  <a href="#thumb" class="btn btn-default" aria-controls="thumb" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i> รูปภาพ</a>
-
-                              </div>
+                              
                               <div class="col col-xs-5 text-left">
                               <a href="../add_user.php" class="btn btn-success" title="Edit"  >เพิ่มสมาชิก <i class="fa fa-pencil"></i></a>
                               </div>
@@ -84,55 +80,50 @@
                            <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="list">
                              <table class="table table-striped table-bordered table-list">
-                              <thead>
-                               <tr>
-                                  <th class="avatar">รูป</th>
-                                  <th>ชื่อ</th>
-                                  <th>นามสกุล</th>
-                                  <th>เบอร์ติดต่อ</th>
-                                  <th>E - mail</th>
-                                  <th><em class="fa fa-cog"></em></th>
-                                </tr>
-                               </thead>
-                               <tbody>
-                                <tr class="ok">
-                                   <td class="avatar"><img src="https://pbs.twimg.com/profile_images/746779035720683521/AyHWtpGY_400x400.jpg"></td>
-                                   <td>Djelal Eddine </td>
-                                   <td>Algeria ฟฟหกฟหก </td>
-                                   <td>0989764289</td>
-                                   <td>djelaleddine@gmail.com </td>
-                                   <td align="center">
-                                     <a href="#" class="btn btn-primary" title="Edit"  ><i class="fa fa-pencil"></i></a>
-                                     <a href="#" class="btn btn-warning" title="ban"   ><i class="fa fa-ban"   ></i></a>
-                                     <a href="#" class="btn btn-danger"  title="delete"><i class="fa fa-trash" ></i></a>
-                                   </td>
-                                </tr>
-                                <tr class="ban">
-                                   <td class="avatar"><img src="https://pbs.twimg.com/profile_images/3511252200/f97a40336742d17609e0b0ca17e301b8_400x400.jpeg"></td>
-                                   <td>Moh Aymen </td>
-                                   <td>Algeria </td>
-                                   <td>0989764289 </td>
-                                   <td>email@gmail.com </td>
-                                   <td align="center">
-                                     <a href="#" class="btn btn-primary" title="Edit"    ><i class="fa fa-pencil">    	</i></a>
-                                     <a href="#" class="btn btn-warning" title="ban"	 ><i class="fa fa-ban"   >admitted</i></a>
-                                     <a href="#" class="btn btn-danger"  title="delete"  ><i class="fa fa-trash" >		</i></a>
-                                   </td>
-                                </tr>
-                                <tr class="new">
-                                   <td class="avatar"><img src="https://pbs.twimg.com/profile_images/3023221270/fcb34337f850c1037af9840ebe510d36_400x400.jpeg"></td>
-                                   <td>Dia ElHak  </td>
-                                   <td>Tunisia </td>
-                                   <td>0989764289 </td>
-                                   <td>email@gmail.com </td>
-                                   <td align="right">
-                                     <a href="#" class="btn btn-primary" title="Edit"    ><i class="fa fa-pencil"	  >		</i></a>
-                              	   <a href="#" class="btn btn-success" title="validate"><i class="fa fa-check-square">validate</i></a>
-                                     <a href="#" class="btn btn-warning" title="ban"	 ><i class="fa fa-ban"		 >		</i></a>
-                                     <a href="#" class="btn btn-danger"  title="delete"  ><i class="fa fa-trash"	   >		</i></a>
-                                    </td>
-                                  </tr>
-                                </tbody>
+                               <thead>
+                                <tr>
+                                 <!--  <th class="avatar">รูป</th> -->
+                                   <th>รหัสบัตรประชาชน</th>
+                                   <th>สถานะ</th>
+                                   <th>ชื่อ</th>
+                                   <th>นามสกุล</th>
+                                   <th>เบอร์ติดต่อ</th>
+                                   <th>E - mail</th>
+                                     <th>ที่อยู่</th>
+                                 <!--  <th><em class="fa fa-cog"></em></th> -->
+                                 </tr>
+                                </thead>
+                                        <?php
+                                        $sql = "SELECT * FROM `resident` WHERE `group_name` = 4 AND `bed_room` = 4";
+                                        $result = mysqli_query($conn, $sql);
+                                        while ($row = mysqli_fetch_array($result)) {
+                                            $id_card = $row["id_card"];
+                                            $pname = $row["pname"];
+                                            $fname = $row["fname"];
+                                            $lname = $row["lname"];
+                                            $tel = $row["tel"];
+                                            $email = $row["email"];
+                                            $address = $row["address"];
+                                            ?>
+                                              <tr>
+                                                <td><center><?php echo $id_card;?></td>
+                                               <td><center><?php echo $pname; ?></td>
+                                                <td><center><?php echo $fname;?></td>
+                                                  <td><center><?php echo $lname;?></td>
+                                                    <td><center><?php echo $tel;?></td>
+                                                      <td><center><?php echo $email;?></td>
+                                                        <td><center><?php echo $address;?></td>
+
+                                                          <td align="center">
+                                                            <a href="../edit/edit_data1_g3.php?id_card=<?=$id_card?>" class="btn btn-primary" title="Edit"  ><i class="fa fa-pencil"></i></a>
+                                                            <a href="#" class="btn btn-warning" title="ban"   ><i class="fa fa-ban"   ></i></a>
+                                                            <a href="../data_group3/data1_group3.php?aa=<?=$id_card?>" class="btn btn-danger" name="aa"  title="delete"><i class="fa fa-trash" ></i></a>
+                                                          </td>
+
+                                              </tr>
+                                              <?php
+                                          }
+                                        ?>
                               </table>
                             </div><!-- END id="list" -->
 

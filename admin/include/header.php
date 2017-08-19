@@ -1,4 +1,13 @@
+<?php
+  session_start();
+  if (!isset($_SESSION['userSession'])) {
+    header("Location: login.php");
+  }
 
+  // $query = $conn->query("SELECT * FROM tbl_users WHERE user_id=".$_SESSION['userSession']);
+  // $userRow=$query->fetch_array();
+  // $conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 

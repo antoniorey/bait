@@ -1,6 +1,18 @@
 <?php
       include 'include/header.php';
       include 'include/rightmenu.php';
+
+      if (isset($_GET["aa"])) {
+        $delete =  $_GET["aa"];
+        $sql = "DELETE FROM resident WHERE id_card='".$delete."' ";
+
+        if (mysqli_query($conn, $sql)) {
+            echo "Record deleted successfully";
+        } else {
+            echo "Error deleting record: " . mysqli_error($conn);
+        }
+
+      }
 ?>
 
 <style>
@@ -70,11 +82,7 @@
                         <div class="panel panel-primary panel-table animated slideInDown">
                          <div class="panel-heading " style="padding:5px;">
                               <div class="row">
-                              <div class="col col-xs-3 text-left">
-                                  <a href="#list" class="btn btn-default" aria-controls="list" role="tab" data-toggle="tab"><i class="fa fa-list-alt"></i> ข้อมูล</a>
-                                  <a href="#thumb" class="btn btn-default" aria-controls="thumb" role="tab" data-toggle="tab"><i class="fa fa-picture-o" aria-hidden="true"></i> รูปภาพ</a>
-
-                              </div>
+                            
                               <div class="col col-xs-5 text-left">
                               <a href="../add_user.php" class="btn btn-success" title="Edit"  >เพิ่มสมาชิก <i class="fa fa-pencil"></i></a>
                               </div>
@@ -84,7 +92,7 @@
                            <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="list">
                              <table class="table table-striped table-bordered table-list">
-                               <table class="table table-striped table-bordered table-list">
+
                                 <thead>
                                  <tr>
                                   <!--  <th class="avatar">รูป</th> -->
@@ -99,9 +107,9 @@
                                   </tr>
                                  </thead>
                                          <?php
-                                           $sql = "select * from resident";
-                                           $result = mysqli_query($conn, $sql);
-                                           while ($row = mysqli_fetch_array($result)) {
+                                         $sql = "SELECT * FROM `resident` WHERE `group_name` = 3 AND `bed_room` = 2";
+                                         $result = mysqli_query($conn, $sql);
+                                         while ($row = mysqli_fetch_array($result)) {
                                              $id_card = $row["id_card"];
                                              $pname = $row["pname"];
                                              $fname = $row["fname"];
@@ -119,80 +127,24 @@
                                                        <td><center><?php echo $email;?></td>
                                                          <td><center><?php echo $address;?></td>
 
+                                                           <td align="center">
+                                                             <a href="../edit/edit_data1_g3.php?id_card=<?=$id_card?>" class="btn btn-primary" title="Edit"  ><i class="fa fa-pencil"></i></a>
+                                                             <a href="#" class="btn btn-warning" title="ban"   ><i class="fa fa-ban"   ></i></a>
+                                                             <a href="../data_group3/data1_group3.php?aa=<?=$id_card?>" class="btn btn-danger" name="aa"  title="delete"><i class="fa fa-trash" ></i></a>
+                                                           </td>
 
                                                </tr>
                                                <?php
                                            }
                                          ?>
 
-                                </table>
-                                
+
+
                                 </tbody>
                               </table>
                             </div><!-- END id="list" -->
 
-                            <div role="tabpanel" class="tab-pane " id="thumb">
-                              <div class="row">
-                              <div class="col-md-12">
 
-                              <div class="ok">
-                               <div class="col-md-3">
-                               <div class="panel panel-default panel-thumb">
-                        			<div class="panel-heading">
-                          			<h3 class="panel-title">Djelal Eddine</h3>
-                        			</div>
-                        			<div class="panel-body avatar-card">
-                         			 <img src="https://pbs.twimg.com/profile_images/746779035720683521/AyHWtpGY_400x400.jpg">
-                       			</div>
-                                  <div class="panel-footer">
-                                     <a href="#" class="btn btn-primary" title="Edit"    ><i class="fa fa-pencil"></i></a>
-                                     <a href="#" class="btn btn-warning" title="ban"	 ><i class="fa fa-ban"   ></i></a>
-                                     <a href="#" class="btn btn-danger"  title="delete"  ><i class="fa fa-trash" ></i></a>
-                                  </div>
-                               </div>
-                      		 </div>
-                             </div>
-
-                              <div class="ban">
-                               <div class="col-md-3">
-                               <div class="panel panel-default panel-thumb">
-                        			<div class="panel-heading">
-                          			<h3 class="panel-title">Moh Aymen</h3>
-                        			</div>
-                        			<div class="panel-body avatar-card">
-                         			 <img src="https://pbs.twimg.com/profile_images/3511252200/f97a40336742d17609e0b0ca17e301b8_400x400.jpeg">
-                       			</div>
-                                  <div class="panel-footer">
-                                     <a href="#" class="btn btn-primary" title="Edit"    ><i class="fa fa-pencil">		</i></a>
-                                     <a href="#" class="btn btn-warning" title="ban"	 ><i class="fa fa-ban"   >admitted</i></a>
-                                     <a href="#" class="btn btn-danger"  title="delete"  ><i class="fa fa-trash" >		</i></a>
-                                  </div>
-                               </div>
-                      		 </div>
-                             </div>
-
-                              <div class="new">
-                               <div class="col-md-3">
-                               <div class="panel panel-default panel-thumb">
-                        			<div class="panel-heading">
-                          			<h3 class="panel-title">Dia ElHak</h3>
-                        			</div>
-                        			<div class="panel-body avatar-card">
-                         			 <img src="https://pbs.twimg.com/profile_images/3023221270/fcb34337f850c1037af9840ebe510d36_400x400.jpeg">
-                       			</div>
-                                  <div class="panel-footer">
-                                     <a href="#" class="btn btn-primary" title="Edit"    ><i class="fa fa-pencil"	  >		</i></a>
-                              	   <a href="#" class="btn btn-success" title="validate"><i class="fa fa-check-square">validate</i></a>
-                                     <a href="#" class="btn btn-warning" title="ban"	 ><i class="fa fa-ban"		 >		</i></a>
-                                     <a href="#" class="btn btn-danger"  title="delete"  ><i class="fa fa-trash"	   >		</i></a>
-                                  </div>
-                               </div>
-                      		 </div>
-                             </div>
-
-                             </div>
-                            </div>
-                            </div><!-- END id="thumb" -->
 
                            </div><!-- END tab-content -->
                           </div>

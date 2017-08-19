@@ -8,9 +8,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.php">SB Admin</a>
+        <a class="navbar-brand" href="../index.php">หน้าแรก</a>
 
-        <a class="navbar-brand" href="../blank.php">คณะ </a>
+        <a class="navbar-brand" href="../blank.php">ห้องพัก </a>
 
 
     </div>

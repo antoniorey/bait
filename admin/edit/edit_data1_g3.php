@@ -12,8 +12,10 @@ if (isset($_POST["btnEdit"])) {
   $email = $_POST["email"];
   $address = $_POST["address"];
   $pname = $_POST["pname"];
+  $group_name = $_POST["group_name"];
+  $bed_room = $_POST["bed_room"];
 
-  $sql = "UPDATE `resident` SET `fname` = '$fname', `lname` = '$lname', `tel` = '$tel', `email` = '$email', `address` = '$address', `pname` = '$pname'  WHERE `resident`.`id_card` = '$id_card'";
+  $sql = "UPDATE `resident` SET `fname` = '$fname', `lname` = '$lname', `tel` = '$tel', `email` = '$email', `address` = '$address', `pname` = '$pname', `group_name` = '$group_name', `bed_room` = '$bed_room'  WHERE `resident`.`id_card` = '$id_card'";
 
 
   //echo $sql;exit;
@@ -21,7 +23,7 @@ if (isset($_POST["btnEdit"])) {
   if ($result) {
     echo "<script type='text/javascript'>";
     echo "alert('แก้ไขสินค้าสำเร็จ');";
-    echo "window.location='../data_group3/data1_group3.php';";
+    echo "window.location='../blank.php';";
     echo "</script>";
     //header('location: admin_product.php');
   }else{
@@ -40,6 +42,8 @@ if (isset($_POST["btnEdit"])) {
     $email = $row["email"];
     $address = $row["address"];
     $pname = $row["pname"];
+    $group_name = $row["group_name"];
+    $bed_room = $row["bed_room"];
   }else{
     $id_card = "";
     $fname = "";
@@ -48,6 +52,9 @@ if (isset($_POST["btnEdit"])) {
     $email = "";
     $address = "";
     $pname = "";
+    $group_name = "";
+    $bed_room = "";
+
   }
 }
 ?>
@@ -110,6 +117,40 @@ if (isset($_POST["btnEdit"])) {
                             <div class="form-group">
                                 <label></label>
                                 <input class="form-control" type="text"  name="address" placeholder="ที่อยู่" value="<?=$address?>">
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label></label>
+                                  <select class="form-control" name="group_name">
+                                    <option><?=$group_name?></option>
+                                    <option value="3">คณะ3</option>
+                                    <option value="4">คณะ4</option>
+                                    <option value="5">คณะ5</option>
+                                    <option value="6">คณะ6</option>
+                                  </select>
+                              </div>
+                            </div>
+                            <div class="col-lg-6">
+                              <div class="form-group">
+                                  <label></label>
+                                  <select class="form-control"  name="bed_room">
+                                    <option><?=$bed_room?></option>
+                                    <option value="1">ห้อง1</option>
+                                    <option value="2">ห้อง2</option>
+                                    <option value="3">ห้อง3</option>
+                                    <option value="4">ห้อง4</option>
+                                    <option value="5">ห้อง5</option>
+                                    <option value="6">ห้อง6</option>
+                                    <option value="7">ห้อง7</option>
+                                    <option value="8">ห้อง8</option>
+                                    <option value="9">ห้อง9</option>
+                                    <option value="10">ห้อง10</option>
+                                    <option value="11">ห้อง11</option>
+                                    <option value="12">ห้อง12</option>
+                                    <option value="13">ห้อง13</option>
+                                    <option value="14">ห้อง14</option>
+                                  </select>
+                              </div>
                             </div>
                       <!--       <div class="form-group">
                                 <label>ผู้ปกครอง</label>

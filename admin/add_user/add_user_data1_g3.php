@@ -12,8 +12,10 @@
         $email = $_POST["email"];
         $address = $_POST["address"];
         $pname = $_POST["pname"];
+        $group_name = $_POST["group_name"];
+        $bed_room = $_POST["bed_room"];
 
-    		$sql = "INSERT INTO resident (`id_card`, `fname`, `lname`, `tel`, `email`, `address`, `pname`) VALUES ( '$id_card', '$fname', '$lname', '$tel', '$email' ,'$address', '$pname' )";
+    		$sql = "INSERT INTO resident (`id_card`, `fname`, `lname`, `tel`, `email`, `address`, `pname`, `group_name`, `bed_room`) VALUES ( '$id_card', '$fname', '$lname', '$tel', '$email' ,'$address', '$pname', '$group_name', '$bed_room' )";
 
         // var_dump($sql);
     		$result = mysqli_query($conn, $sql);
@@ -21,7 +23,7 @@
     		if ($result) {
     			echo "<script type='text/javascript'>";
     			echo "alert('เพิ่มสินค้าสำเร็จ');";
-    			echo "window.location='data_group3/data1_group3.php';";
+    			echo "window.location='../data_group3_user/data1_group3.php';";
     			echo "</script>";
     			//header('location: admin_product.php');
     		}else{
@@ -89,7 +91,40 @@
                                         <input class="form-control" type="text"  name="address" placeholder="ที่อยู่">
                                     </div>
 
-
+                                    <div class="col-lg-6">
+                                      <div class="form-group">
+                                          <label></label>
+                                          <select class="form-control" name="group_name">
+                                            <option>กรุณาเลือก - คณะ</option>
+                                            <option value="3">คณะ3</option>
+                                            <option value="4">คณะ4</option>
+                                            <option value="5">คณะ5</option>
+                                            <option value="6">คณะ6</option>
+                                          </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                      <div class="form-group">
+                                          <label></label>
+                                          <select class="form-control" name="bed_room">
+                                            <option>กรุณาเลือก - ห้อง</option>
+                                            <option value="1">ห้อง1</option>
+                                            <option value="2">ห้อง2</option>
+                                            <option value="3">ห้อง3</option>
+                                            <option value="4">ห้อง4</option>
+                                            <option value="5">ห้อง5</option>
+                                            <option value="6">ห้อง6</option>
+                                            <option value="7">ห้อง7</option>
+                                            <option value="8">ห้อง8</option>
+                                            <option value="9">ห้อง9</option>
+                                            <option value="10">ห้อง10</option>
+                                            <option value="11">ห้อง11</option>
+                                            <option value="12">ห้อง12</option>
+                                            <option value="13">ห้อง13</option>
+                                            <option value="14">ห้อง14</option>
+                                          </select>
+                                      </div>
+                                    </div>
 
                                     <button type="submit" class="btn btn-default" name="btnAdd">บันทึก</button>
                                     <button type="reset" class="btn btn-default">Reset</button>
